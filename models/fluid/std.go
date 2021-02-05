@@ -25,14 +25,19 @@ func FactorFCole(re, eps, D float64) float64 {
 		calc_error := 1.0
 		ffactor := 0.001 //friction factor
 		a := eps / D
-
+		b := 2.51 / re
 		if calc_error > tol {
 			for iter < int(maxiter) {
 				x := 1.0 / math.Sqrt(ffactor)
-
+				c := a + b*x
+				f := (-2.0) * math.Log10(c)
+				fp := (-2.0 / math.Ln10) * (b / c)
+				calc_error = (f - x) / (fp - 1)
+				x = x - calc_error
 				iter = iter + 1
 			}
 		}
+		return 1.0 / math.Pow(x, 2)
 
 	}
 }
