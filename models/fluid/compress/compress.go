@@ -1,7 +1,7 @@
-package main
+package compress
 
 import (
-	"fmt"
+	//"fmt"
 	"math"
 )
 
@@ -11,7 +11,7 @@ func SettlePress(press, fractions []float64) float64 {
 	// TODO: Description
 	if len(press) != len(fractions) {
 		// TODO: return error
-		break
+		return 0
 
 	} else {
 		sum := 0.0
