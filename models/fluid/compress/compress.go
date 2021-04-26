@@ -5,6 +5,11 @@ import (
 	"math"
 )
 
+const {
+	R float64 = 0.082 // atm/l/molK
+	Pa
+	Ta 
+ }
 // TODO: to complete functions
 
 func SettlePress(press, fractions []float64) float64 {
@@ -35,4 +40,18 @@ func FlowOrifice(P, k, Mw, T, Vol float64) float64 {
 	c1 := k * Mw / (R * T)
 	c2 := math.Pow(b, a) * c1
 	return (P) * 98066.5 * math.Pow(c2, 0.5)
+}
+
+func DensIdeal(P, T, MW float64) float64 {
+	// P in ATM T in Kelvin
+	return (P * MW) / (R * T)
+}
+
+func DensReal(P, T, MW, z float64) float64 {
+	//Z va dividido o que?
+	return DensIdeal(P, T, MW) / z
+}
+
+func ConvStdToAct(Pa,Ta,Flowa, ) {
+
 }
