@@ -7,8 +7,8 @@ import (
 
 const {
 	R float64 = 0.082 // atm/l/molK
-	Pa
-	Ta 
+	Ps flaoat64 = 1.0
+	Ts  float64 = 273.15
  }
 // TODO: to complete functions
 
@@ -52,6 +52,6 @@ func DensReal(P, T, MW, z float64) float64 {
 	return DensIdeal(P, T, MW) / z
 }
 
-func ConvStdToAct(Pa,Ta,Flowa, ) {
-
+func ConvStdToAct(Pa,Ta,Flows, ) {
+	return (Ps/Pa)*(Ta/Ts)*(Flows)
 }
